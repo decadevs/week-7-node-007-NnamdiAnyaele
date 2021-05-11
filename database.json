@@ -1,0 +1,23 @@
+[
+   {
+      "id": 1,
+      "createdAt": "2021-05-10T17:50:17.863Z",
+      "shape": "rectangle",
+      "dimension": {
+         "a": 4,
+         "b": 5
+      },
+      "area": 20
+   },
+   {
+      "id": 2,
+      "createdAt": "2021-05-10T17:50:52.687Z",
+      "shape": "triangle",
+      "dimension": {
+         "a": 4,
+         "b": 5,
+         "c": 7
+      },
+      "area": 9.797958971132712
+   }
+]
