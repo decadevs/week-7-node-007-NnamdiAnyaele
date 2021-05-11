@@ -339,5 +339,40 @@
          "c": 6
       },
       "area": "9.92"
+   },
+   {
+      "id": 40,
+      "createdAt": "2021-05-11T01:00:47.032Z",
+      "shape": "circle",
+      "dimension": 7,
+      "area": "153.94"
+   },
+   {
+      "id": 41,
+      "createdAt": "2021-05-11T01:00:47.055Z",
+      "shape": "square",
+      "dimension": 7,
+      "area": "49.00"
+   },
+   {
+      "id": 42,
+      "createdAt": "2021-05-11T01:00:47.064Z",
+      "shape": "rectangle",
+      "dimension": {
+         "a": 4,
+         "b": 5
+      },
+      "area": "20.00"
+   },
+   {
+      "id": 43,
+      "createdAt": "2021-05-11T01:00:47.075Z",
+      "shape": "triangle",
+      "dimension": {
+         "a": 4,
+         "b": 5,
+         "c": 6
+      },
+      "area": "9.92"
    }
 ]
