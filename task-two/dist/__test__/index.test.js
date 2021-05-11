@@ -43,75 +43,98 @@ var app_1 = __importDefault(require("../app"));
 var supertest_1 = __importDefault(require("supertest"));
 var request = supertest_1.default(app_1.default);
 /**
-* Testing post a user endpoint by giving a existing user
+* Testing calculate for each shape
 */
-describe('/calculate', function () {
-    it("it calculate area for a circle", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post("/calculate")
-                        .send({
-                        shape: "circle",
-                        dimension: 7
-                    })];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(201);
-                    expect(Number(response.body.area)).toEqual(153.94);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it("it calculate area for a square", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post("/calculate")
-                        .send({
-                        shape: "square",
-                        dimension: 7
-                    })];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(201);
-                    expect(Number(response.body.area)).toEqual(49);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it("it calculate area for a rectangle", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post("/calculate")
-                        .send({
-                        shape: "rectangle",
-                        dimension: { a: 4, b: 5 }
-                    })];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(201);
-                    expect(Number(response.body.area)).toEqual(20);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it("it calculate area for a triangle", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post("/calculate")
-                        .send({
-                        shape: "triangle",
-                        dimension: { a: 4, b: 5, c: 6 }
-                    })];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(201);
-                    expect(Number(response.body.area)).toEqual(9.92);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
+describe('/calculate', function () { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        it("it calculate area for a circle and send the circle object", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, request.post("/calculate")
+                            .send({
+                            shape: "circle",
+                            dimension: 7
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        expect(response.status).toBe(201);
+                        expect(JSON.parse(response.body.area)).toEqual(153.94);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        it("it calculate area for a square", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, request.post("/calculate")
+                            .send({
+                            shape: "square",
+                            dimension: 7
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        expect(response.status).toBe(201);
+                        expect(Number(response.body.area)).toEqual(49);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        it("it calculate area for a rectangle", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, request.post("/calculate")
+                            .send({
+                            shape: "rectangle",
+                            dimension: { a: 4, b: 5 }
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        expect(response.status).toBe(201);
+                        expect(Number(response.body.area)).toEqual(20);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        it("it calculate area for a triangle", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, request.post("/calculate")
+                            .send({
+                            shape: "triangle",
+                            dimension: { a: 4, b: 5, c: 6 }
+                        })];
+                    case 1:
+                        response = _a.sent();
+                        expect(response.status).toBe(201);
+                        expect(Number(response.body.area)).toEqual(9.92);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        return [2 /*return*/];
+    });
+}); });
+/**
+ * Testing fetching calculated records from database.json
+ */
+describe('fetchRecords', function () { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        it("it should return records of computated areas of shapes", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, request.get("/fetchRecords")];
+                    case 1:
+                        response = _a.sent();
+                        expect(response.status).toBe(200);
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        return [2 /*return*/];
+    });
+}); });
